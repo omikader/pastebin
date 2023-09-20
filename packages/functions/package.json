@@ -1,0 +1,17 @@
+{
+  "name": "@pastebin/functions",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc -noEmit"
+  },
+  "dependencies": {
+    "busboy": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.6.2",
+    "@types/aws-lambda": "^8.10.121",
+    "@types/busboy": "^1.5.1",
+    "sst": "^2.25.3"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "@pastebin/core",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "typecheck": "tsc -noEmit"
+  },
+  "devDependencies": {
+    "@types/bad-words": "^3.0.1",
+    "@types/node": "^20.6.2",
+    "sst": "^2.25.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-dynamodb": "^3.415.0",
+    "@aws-sdk/client-s3": "^3.414.0",
+    "bad-words": "^3.0.4",
+    "electrodb": "^2.10.0",
+    "nanoid": "^5.0.1"
+  }
+}
