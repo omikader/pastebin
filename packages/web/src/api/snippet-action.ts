@@ -1,13 +1,23 @@
-import { ActionFunction, redirect } from "react-router-dom";
+import { ActionFunction, json, redirect } from "react-router-dom";
 
 export const snippetAction: ActionFunction = async ({ request }) => {
+  const data = await request.formData();
+
+  const body = data.get("body");
+  if (body === null) {
+    throw json("Form data is missing 'body' key.", { status: 400 });
+  }
+
+  data.append("blob", new Blob([body], { type: "text/plain" }));
+  data.delete("body");
+
   const res = await fetch(import.meta.env.VITE_APP_API_URL, {
     method: request.method,
-    body: await request.formData(),
+    body: data,
   });
 
   if (!res.ok) {
-    throw new Response(await res.text(), { status: res.status });
+    throw res;
   }
 
   const id = await res.text();

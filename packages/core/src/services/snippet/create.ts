@@ -1,6 +1,7 @@
 import { Bucket } from "sst/node/bucket";
 import { ConditionalCheckFailedException } from "@aws-sdk/client-dynamodb";
-import { PutObjectCommand } from "@aws-sdk/client-s3";
+import { Readable } from "stream";
+import { Upload } from "@aws-sdk/lib-storage";
 
 import { Snippet } from "../../entities";
 import { client } from "../../s3";
@@ -9,10 +10,9 @@ import { nanoid } from "../../nanoid";
 export async function create(input: {
   title: string;
   description?: string;
-  body: string;
+  blob: Readable;
 }) {
   let id = nanoid();
-
   while (true) {
     try {
       await Snippet.create({ id, ...input }).go({ originalErr: true });
@@ -26,17 +26,17 @@ export async function create(input: {
     }
   }
 
-  const command = new PutObjectCommand({
-    Bucket: Bucket.bucket.bucketName,
-    Key: id,
-    Body: input.body,
-    Metadata: {
-      dynamoPrimaryKey: id,
+  const upload = new Upload({
+    client,
+    params: {
+      Bucket: Bucket.bucket.bucketName,
+      Key: id,
+      Body: input.blob,
     },
   });
 
   try {
-    await client.send(command);
+    await upload.done();
     return id;
   } catch (e) {
     await Snippet.delete({ id }).go();

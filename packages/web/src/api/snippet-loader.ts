@@ -6,7 +6,7 @@ export const snippetLoader: LoaderFunction = async ({
   const res = await fetch(`${import.meta.env.VITE_APP_API_URL}/${snippetId}`);
 
   if (!res.ok) {
-    throw new Response(await res.text(), { status: res.status });
+    throw res;
   }
 
   return res.json();

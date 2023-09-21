@@ -6,7 +6,8 @@
     "typecheck": "tsc -noEmit"
   },
   "dependencies": {
-    "busboy": "^1.6.0"
+    "busboy": "^1.6.0",
+    "ts-pattern": "^5.0.5"
   },
   "devDependencies": {
     "@types/node": "^20.6.2",

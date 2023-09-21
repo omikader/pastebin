@@ -11,16 +11,17 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    errorElement: <ErrorPage />,
     children: [
       {
         index: true,
         element: <NewPage />,
+        errorElement: <ErrorPage />,
         action: snippetAction,
       },
       {
         path: ":snippetId",
         element: <SnippetPage />,
+        errorElement: <ErrorPage />,
         loader: snippetLoader,
       },
     ],
