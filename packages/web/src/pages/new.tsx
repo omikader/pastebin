@@ -2,7 +2,7 @@ import { Form } from "react-router-dom";
 
 export function NewPage() {
   return (
-    <div className="card shadow-xl w-1/2">
+    <div className="card shadow-xl w-4/5 lg:w-3/5">
       <div className="card-body">
         <Form method="post" className="join join-vertical gap-5">
           <div className="form-control">

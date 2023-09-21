@@ -8,7 +8,7 @@ export function ErrorPage() {
     : null;
 
   return (
-    <div className="card shadow-xl w-1/3">
+    <div className="card shadow-xl w-fit">
       <div className="card-body">
         <h2 className="card-title">Oops!</h2>
 

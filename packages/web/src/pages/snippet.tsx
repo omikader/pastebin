@@ -10,7 +10,7 @@ export function SnippetPage() {
   const data = useLoaderData() as Snippet;
 
   return (
-    <div className="card shadow-xl w-3/4">
+    <div className="card shadow-xl w-4/5 lg:w-3/5">
       <div className="card-body">
         <h2 className="card-title">{data.title}</h2>
 
