@@ -1,25 +1,20 @@
-import { isRouteErrorResponse, useRouteError } from "react-router-dom";
-
 export function ErrorPage() {
-  const error = useRouteError();
-
-  const message = isRouteErrorResponse(error)
-    ? `${error.status}: ${JSON.stringify(error.data)}`
-    : null;
-
   return (
-    <div className="card shadow-xl w-fit">
-      <div className="card-body">
-        <h2 className="card-title">Oops!</h2>
-
-        <p>Sorry, an error occurred</p>
-
-        {message && (
-          <p>
-            <i className="text-error">{message}</i>
-          </p>
-        )}
-      </div>
+    <div className="alert w-fit">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="stroke-current shrink-0 h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+      >
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth="2"
+          d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z"
+        />
+      </svg>
+      <span>Oops! Sorry, an error occurred.</span>
     </div>
   );
 }

@@ -1,6 +1,10 @@
-import { Form } from "react-router-dom";
+import { Form, useSubmit } from "react-router-dom";
+import { useState } from "react";
 
 export function NewPage() {
+  const submit = useSubmit();
+  const [isLoading, setIsLoading] = useState(false);
+
   return (
     <div className="card shadow-xl w-4/5 lg:w-3/5">
       <div className="card-body">
@@ -43,7 +47,21 @@ export function NewPage() {
           </div>
 
           <div className="card-actions justify-end">
-            <button className="btn btn-accent text-white">Create</button>
+            <button
+              type="submit"
+              className="btn btn-accent text-white"
+              disabled={isLoading}
+              onClick={(e) => {
+                setIsLoading(true);
+                submit(e.currentTarget);
+              }}
+            >
+              {isLoading ? (
+                <span className="loading loading-spinner" />
+              ) : (
+                "Create"
+              )}
+            </button>
           </div>
         </Form>
       </div>
