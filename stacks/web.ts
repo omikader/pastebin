@@ -20,6 +20,6 @@ export function WebStack({ stack }: StackContext) {
   });
 
   stack.addOutputs({
-    AppUrl: app.url,
+    AppUrl: app.customDomainUrl ?? app.url,
   });
 }

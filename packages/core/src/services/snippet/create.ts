@@ -1,6 +1,6 @@
 import { Bucket } from "sst/node/bucket";
 import { ConditionalCheckFailedException } from "@aws-sdk/client-dynamodb";
-import { Readable } from "stream";
+import type { Readable } from "stream";
 import { Upload } from "@aws-sdk/lib-storage";
 
 import { Snippet } from "../../entities";
