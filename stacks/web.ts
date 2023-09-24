@@ -12,6 +12,11 @@ export function WebStack({ stack }: StackContext) {
     environment: {
       VITE_APP_API_URL: api.url,
     },
+    customDomain: {
+      domainName: "pastebin.omikader.com",
+      domainAlias: "www.pastebin.omikader.com",
+      hostedZone: "omikader.com",
+    },
   });
 
   stack.addOutputs({
