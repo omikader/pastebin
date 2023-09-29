@@ -1,14 +1,17 @@
-import { Form, useSubmit } from "react-router-dom";
+import { Form } from "react-router-dom";
 import { useState } from "react";
 
 export function NewPage() {
-  const submit = useSubmit();
   const [isLoading, setIsLoading] = useState(false);
 
   return (
     <div className="card shadow-xl w-4/5 lg:w-3/5">
       <div className="card-body">
-        <Form method="post" className="join join-vertical gap-5">
+        <Form
+          method="post"
+          className="join join-vertical gap-5"
+          onSubmit={() => setIsLoading(true)}
+        >
           <div className="form-control">
             <label className="label">
               <span className="label-text text-sm">Title*</span>
@@ -51,10 +54,6 @@ export function NewPage() {
               type="submit"
               className="btn btn-accent text-white"
               disabled={isLoading}
-              onClick={(e) => {
-                setIsLoading(true);
-                submit(e.currentTarget);
-              }}
             >
               {isLoading ? (
                 <span className="loading loading-spinner" />
