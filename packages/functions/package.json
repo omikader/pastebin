@@ -10,9 +10,9 @@
     "ts-pattern": "^5.0.5"
   },
   "devDependencies": {
-    "@types/node": "^20.6.2",
-    "@types/aws-lambda": "^8.10.121",
+    "@types/node": "20.12.12",
+    "@types/aws-lambda": "8.10.138",
     "@types/busboy": "^1.5.1",
-    "sst": "^2.25.3"
+    "sst": "2.42.0"
   }
 }

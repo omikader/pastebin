@@ -9,7 +9,7 @@ export default {
     };
   },
   stacks(app) {
-    app.setDefaultFunctionProps({ runtime: "nodejs18.x" });
+    app.setDefaultFunctionProps({ runtime: "nodejs20.x" });
     app.stack(DataStack).stack(ApiStack).stack(WebStack);
   },
 } satisfies SSTConfig;
